@@ -88,11 +88,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     height: 500px;
+    width: auto;
+    margin: 0 250px;
 
     .container {
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        .navi-left {
+            margin-right: 30px;
+        }
 
         .left {
             width: 70%;
@@ -137,33 +143,43 @@
         .row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
 
             .col {
-                width: 100%;
-                padding: 15px 15px;
-
                 .card {
-                    .card-item {
-                        .card-body {}
+                    background-color: #f8f8f8;
 
-                        .bottom {
-                            display: flex;
+                    a {
+                        font-size: 24px;
+                        font-weight: 300;
+                        color: #000;
+                        line-height: 64px;
+                        text-decoration: none;
+                        display: inline-block;
+                        width: 175px;
+                        height: 64px;
+                        background-color: #e1b067;
+                        text-align: center;
+                    }
 
-                            a {
-                                padding: 10px 20px;
-                                background: #F8B653;
-                                border-style: none;
-                                color: #fff;
-                                text-decoration: none;
-                            }
+                    span {
+                        position: absolute;
+                        width: 175px;
+                        height: 64px;
+                        top: auto;
+                        right: auto;
+                        bottom: 0;
+                        left: 174px;
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: #000;
+                        background-color: #dedddc;
+                        text-align: center;
+                        padding: 20px 50px;
+                    }
 
-                            span {
-                                padding: 10px 30px;
-                                background: #DEDDDC;
-                                border-style: none;
-                                color: #000;
-                            }
-                        }
+                    img {
+                        width: 100%;
                     }
                 }
 

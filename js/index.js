@@ -1,37 +1,20 @@
-function layDanhSachProductApi() {
-    var promise = axios({
-        url: 'https://shop.cyberlearn.vn/api/Product',
-        method: 'Get'
-    });
-
-
-    promise.then(function (result) {
-        console.log(result.data.content);
-        renderProduct(result.data.content);
-    });
-    promise.catch(function (err) {
-        console.log(err)
-    });
-}
-window.onload = function () {
-    layDanhSachProductApi();
-}
-
-function renderProduct(arrProduct) {
-    var products = ''; //output: string html 
-    for (var i = 0; i < arrProduct.length; i++) {
-        var pr = arrProduct[i];
-        products += `
-            <tr>
-                <td><img src="${pr.image}"/></td>
-            </tr>
-            <tr>
-                <td>${pr.name}</td>
-                <br/>
-                <td>${pr.shortDescription}</td>
-            </tr>
-        `;
-    }
-    document.querySelector('#tblproduct').innerHTML = products;
-
-}
+const getElement = (id) => document.getElementById(id)
+const url = 'https://shop.cyberlearn.vn/api/Product'
+fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+        const products = data.content
+        const productRender = products.reduce((value, product) => {
+            return value += `<div class="col">
+                                <div class="card">
+                                    <img src="${product.image}"  alt="">
+                                    <h3>${product.name}</h3>
+                                    <p>${product.shortDescription}</p>
+                                        <a href="./detail.html?producid=${product.id}">Buy now</a>
+                                        <span>${product.price}$</span>
+                                </div>
+                            </div>`
+        }, '')
+        getElement('products').innerHTML = productRender
+    })
+    .catch((err) => alert(err))
