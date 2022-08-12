@@ -15,6 +15,6 @@ fetch(url)
                                 </div>
                             </div>`
         }, '')
-        getElement('products').innerHTML = productRender
+        getElement('details').innerHTML = productRender
     })
     .catch((err) => alert(err))
