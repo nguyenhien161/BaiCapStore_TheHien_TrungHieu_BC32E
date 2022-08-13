@@ -1,3 +1,4 @@
+
 const getElement = (id) => document.getElementById(id)
 const url = 'https://shop.cyberlearn.vn/api/Product'
 fetch(url)
